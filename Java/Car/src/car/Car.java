@@ -18,6 +18,11 @@ public class Car {
     double mpg = 26.4;
     
     int numberOfPeopleInCar = 1;
+    int maxNumberOfPeopleInCar = 6;
+    
+    public Car(){
+        
+    }
     
     public Car(int customMaxSpeed, double customWeight, boolean customIsTheCarOn){
         maxSpeed=customMaxSpeed;
@@ -44,13 +49,22 @@ public class Car {
     
     public void getIn(){
         //numberOfPeopleInCar = numberOfPeopleInCar + 1;
-        numberOfPeopleInCar++;
+        if(numberOfPeopleInCar < maxNumberOfPeopleInCar){
+            numberOfPeopleInCar++;
+            System.out.println("Someone got in");
+        } else {
+            System.out.println("The car is full");
+        }
     }
     
      public void getOut(){
         //numberOfPeopleInCar = numberOfPeopleInCar - 1;
+        if (numberOfPeopleInCar > 0){
         numberOfPeopleInCar--;
-    }
+        } else{
+            System.out.println("No one inside the car");
+        }    
+     }
     
     public double howManyMilesTillOutOfGas(){
         return currentFuel * mpg;
@@ -60,24 +74,21 @@ public class Car {
         return maxFuel * mpg;
     }
     
+    public void turnTheCarOn(){
+        if (!isTheCarOn /* same with isTheCarOn == false */){
+            isTheCarOn = true;
+        } else{
+            System.out.println("The car is already on");
+        }
+    }
+        
+    
+    
     public static void main(String[] args) {
         // TODO code application logic here
-        Car birthdayPresent = new Car(200, 5000, true);
-        System.out.println("Birthday Car V1 : ");
-        birthdayPresent.printVariables();
-//        System.out.println("Christmas Present:");
-//        Car christmasPresent = new Car (400, 2000, false);
-//        christmasPresent.printVariables();
-        System.out.println("Birthday Car V2 : ");
-        birthdayPresent.getIn();
-        birthdayPresent.getIn();
-        birthdayPresent.getIn();
-        birthdayPresent.printVariables();
-        System.out.println("How Many Miles Left : " + birthdayPresent.howManyMilesTillOutOfGas());
-        System.out.println("Max Miles : " + birthdayPresent.maxMilesPerFillUp());
-        birthdayPresent.getOut();
-        System.out.println("Birthday Car V2 : ");
-        birthdayPresent.printVariables();
+        Car tommyCar = new Car();
+        tommyCar.getOut();
+        tommyCar.getOut();
     }
     
 }
