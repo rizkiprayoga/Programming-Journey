@@ -30,6 +30,28 @@ public class Car {
         isTheCarOn=customIsTheCarOn;
     }
     
+    //Getter and Setter
+    
+    public int getMaxSpeed(){
+        return this.maxSpeed;
+    }
+    
+    public void setMaxSpeed(int newMaxSpeed){
+        this.maxSpeed = newMaxSpeed;
+    }
+    
+    public int getMinSpeed(){
+        return this.minSpeed;
+    }
+    
+    public double getWeight(){
+        return this.weight;
+    }
+    
+    public boolean getIsTheCarOn(){
+        return this.isTheCarOn;
+    }
+    
     //public means this is public instances
     //void means it doesn't return anything
     public void printVariables(){
@@ -42,9 +64,8 @@ public class Car {
         System.out.println(numberOfPeopleInCar);
     }
     
-    public void upgradeMinSpeed(){
-        minSpeed = maxSpeed;
-        maxSpeed = maxSpeed + 1;
+    public void upgradeMaxSpeed(){
+        setMaxSpeed (getMaxSpeed() + 10);
     }
     
     public void getIn(){
